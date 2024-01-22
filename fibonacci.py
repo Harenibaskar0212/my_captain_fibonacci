@@ -1,16 +1,18 @@
-
 def fibonacci(n):
-    fib_sequence = [0, 1]
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    else:
+        fib_sequence = [0, 1]
+        for i in range(2, n):
+            fib_sequence.append(fib_sequence[i-1] + fib_sequence[i-2])
+        return fib_sequence
 
-    for _ in range(2, n):
-        next_number = fib_sequence[-1] + fib_sequence[-2]
-        fib_sequence.append(next_number)
+n = int(input("Enter the number of terms: "))
 
-    return fib_sequence
-
-# Get input from the user
-n = int(input("Enter the number of Fibonacci numbers to generate: "))
-
-# Generate and print Fibonacci numbers
 result = fibonacci(n)
-print("Fibonacci Sequence:", result)
+print("Fibonacci sequence:")
+print(result)
